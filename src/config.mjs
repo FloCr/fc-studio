@@ -2,6 +2,18 @@
 // Contenu et réglages du site : offres, réalisations, FAQ, coordonnées.
 // ---------------------------------------------------------------------------
 
+import { existsSync, readFileSync } from "node:fs";
+
+// Valeurs hors dépôt : fichier .env en local, secrets GitHub en CI.
+const env = { ...process.env };
+const envFile = new URL("../.env", import.meta.url);
+if (existsSync(envFile)) {
+  for (const line of readFileSync(envFile, "utf8").split("\n")) {
+    const match = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
+    if (match && !env[match[1]]) env[match[1]] = match[2].replace(/^["']|["']$/g, "");
+  }
+}
+
 export const site = {
   // URL publique, sans slash final. Si le site est servi dans un sous-dossier
   // (ex. https://flocr.github.io/fcei), tous les liens s'adaptent.
@@ -12,13 +24,13 @@ export const site = {
   locale: "fr_FR",
 
   // Coordonnées affichées (laisser vide pour masquer).
-  email: "",
+  email: "florian@fc-studio.fr",
   phone: "", // ex. "06 12 34 56 78"
   // Zone servie (textes et données structurées), facultative.
   area: "",
 
-  // Formulaire : clé d'accès https://web3forms.com (publique par conception).
-  web3formsKey: "",
+  // Formulaire : clé d'accès https://web3forms.com, fournie par WEB3FORMS_KEY.
+  web3formsKey: env.WEB3FORMS_KEY || "",
 
   // Affiche « Réponse sous 24 h » dans le bloc devis.
   respondWithin24h: false,
