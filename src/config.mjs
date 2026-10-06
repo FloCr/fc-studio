@@ -1,7 +1,5 @@
 // ---------------------------------------------------------------------------
-// Contenu et réglages du site. C'est le seul fichier à modifier au quotidien.
-// Les valeurs marquées « À COMPLÉTER » doivent être renseignées avant la mise
-// en ligne (le build affiche un avertissement tant qu'elles sont vides).
+// Contenu et réglages du site : offres, réalisations, FAQ, coordonnées.
 // ---------------------------------------------------------------------------
 
 export const site = {
@@ -14,20 +12,18 @@ export const site = {
   locale: "fr_FR",
 
   // Coordonnées affichées (laisser vide pour masquer).
-  email: "", // À COMPLÉTER
+  email: "",
   phone: "", // ex. "06 12 34 56 78"
-  // Zone servie, utilisée dans les textes et les données structurées. Laisser
-  // vide tant qu'aucune zone n'est arrêtée.
+  // Zone servie (textes et données structurées), facultative.
   area: "",
 
-  // Formulaire : clé gratuite sur https://web3forms.com (même service que
-  // Créa-Bains et Mathieu Plomberie).
-  web3formsKey: "", // À COMPLÉTER
+  // Formulaire : clé d'accès https://web3forms.com (publique par conception).
+  web3formsKey: "",
 
-  // N'afficher « Réponse sous 24 h » que si ce délai est tenable.
+  // Affiche « Réponse sous 24 h » dans le bloc devis.
   respondWithin24h: false,
 
-  // Délais affichés dans la FAQ et les pages. À AJUSTER à votre organisation.
+  // Délais indicatifs affichés dans la FAQ.
   delays: {
     essentiel: "une à deux semaines",
     pro: "deux à trois semaines",
@@ -47,7 +43,7 @@ export const site = {
     status: "Entrepreneur individuel",
     siret: "917 618 928 00019",
     address: "37 rue Général Gouraud, 33200 Bordeaux",
-    vat: "TVA non applicable, art. 293 B du CGI", // à adapter selon votre régime
+    vat: "TVA non applicable, art. 293 B du CGI",
     host: "GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis",
   },
 };
@@ -93,7 +89,6 @@ export const offers = [
     id: "pro",
     name: "Site Pro",
     price: 499,
-    // Le brief proposait « Le plus choisi » : à utiliser quand ce sera vérifiable.
     badge: "Recommandé",
     featured: true,
     pitch:
@@ -177,7 +172,7 @@ export const projects = [
     id: "crea-bains",
     name: "Créa-Bains",
     activity: "Rénovation de salles de bains et climatisation",
-    place: "Saint-Leu-la-Forêt, Val-d'Oise",
+    place: "",
     url: "https://crea-bains.fr",
     displayUrl: "crea-bains.fr",
     image: "crea",
@@ -195,7 +190,7 @@ export const projects = [
     id: "mathieu-plomberie",
     name: "Monsieur Mathieu Plomberie",
     activity: "Plombier chauffagiste",
-    place: "Val-d'Oise",
+    place: "",
     url: "https://monsieurmathieu-plomberie.fr",
     displayUrl: "monsieurmathieu-plomberie.fr",
     image: "mathieu",
@@ -213,7 +208,6 @@ export const projects = [
     name: "Clémence Philouze",
     activity: "Sage-femme libérale",
     place: "Bordeaux",
-    // Domaine clemencephilouze-sagefemme.fr pas encore actif : remplacer quand il l'est.
     url: "https://flocr.github.io/clemencephilouze-sagefemme/",
     displayUrl: "clemencephilouze-sagefemme.fr",
     image: "clemence",
@@ -286,8 +280,7 @@ export const seoPoints = [
 ];
 
 // ---------------------------------------------------------------------------
-// FAQ — `ownership` et `subscription` reflètent le modèle hébergement décrit
-// dans `maintenance` : à vérifier avant mise en ligne.
+// FAQ
 // ---------------------------------------------------------------------------
 
 export const faq = [
