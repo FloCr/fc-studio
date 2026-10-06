@@ -1873,3 +1873,38 @@ a.audience:hover {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ==========================================================================
+   Page merci
+   ========================================================================== */
+
+.page-hero.thanks {
+  padding-block: clamp(64px, 10vw, 128px) clamp(40px, 6vw, 72px);
+}
+
+.thanks-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 28px;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green-ink);
+}
+
+.thanks-icon .icon {
+  width: 30px;
+  height: 30px;
+  stroke-width: 2.6;
+}
+
+.thanks-note {
+  margin-top: 40px;
+  color: var(--ink-2);
+}
+
+.thanks-note a {
+  color: var(--accent);
+  font-weight: 600;
+}
