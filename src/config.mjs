@@ -32,8 +32,19 @@ export const site = {
   phone: "06 95 03 77 43",
   // Fiche Google Business Profile (lien dans le pied de page et données structurées).
   googleProfile: "https://www.google.com/search?kgmid=/g/11zy3b3nrz",
-  // Zone servie (textes et données structurées), facultative.
-  area: "",
+  // Zone servie (données structurées), du plus local au plus large.
+  // Adresse masquée sur la fiche Google : on n'indique que la ville, jamais la rue.
+  area: [
+    { "@type": "City", name: "Bordeaux" },
+    { "@type": "AdministrativeArea", name: "Gironde" },
+    { "@type": "Country", name: "France" },
+  ],
+  // Profils publics (données structurées « sameAs ») : laisser vide pour ignorer.
+  profiles: {
+    linkedin: "https://www.linkedin.com/in/floriancarriere/",
+    malt: "https://www.malt.fr/profile/floriancarriere",
+    github: "https://github.com/FloCr",
+  },
 
   // Formulaire : clé d'accès https://web3forms.com, fournie par WEB3FORMS_KEY.
   web3formsKey: env.WEB3FORMS_KEY || "",
@@ -70,7 +81,7 @@ export const site = {
 export const nav = [
   { label: "Réalisations", anchor: "#realisations", page: "/realisations/" },
   { label: "Offres", anchor: "#offres", page: "/tarifs/" },
-  { label: "Processus", anchor: "#processus", page: "/#processus" },
+  { label: "Guides", page: "/guides/" },
   { label: "FAQ", anchor: "#faq", page: "/#faq" },
   { label: "Contact", anchor: "#devis", page: "/contact/" },
 ];
@@ -229,7 +240,7 @@ export const projects = [
     activity: "Sage-femme libérale",
     place: "Bordeaux",
     url: "https://flocr.github.io/clemencephilouze-sagefemme/",
-    displayUrl: "clemencephilouze-sagefemme.fr",
+    displayUrl: "flocr.github.io/clemencephilouze-sagefemme",
     image: "clemence",
     summary:
       "Site vitrine pour une sage-femme libérale, centré sur la prise de rendez-vous.",

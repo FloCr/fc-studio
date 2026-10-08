@@ -2,13 +2,14 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, readdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { dirname, join } from "node:path";
-import { site } from "./src/config.mjs";
+import { site, offers, maintenance, projects } from "./src/config.mjs";
 import { layout } from "./src/layout.mjs";
-import { abs } from "./src/lib.mjs";
+import { abs, euro } from "./src/lib.mjs";
 
 const OUT = "dist";
 const pageFiles = readdirSync("src/pages").filter((f) => f.endsWith(".mjs"));
-const pages = await Promise.all(pageFiles.map(async (f) => (await import(`./src/pages/${f}`)).default));
+// Un fichier peut exporter une page ou une liste de pages (ex. les guides).
+const pages = (await Promise.all(pageFiles.map(async (f) => (await import(`./src/pages/${f}`)).default))).flat();
 
 const minifyCss = (css) =>
   css
@@ -49,8 +50,35 @@ writeFileSync(
   join(OUT, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${indexed.map((p) => `  <url><loc>${abs(p.path)}</loc></url>`).join("\n")}
+${indexed.map((p) => `  <url><loc>${abs(p.path)}</loc>${p.lastmod ? `<lastmod>${p.lastmod}</lastmod>` : ""}</url>`).join("\n")}
 </urlset>
+`
+);
+
+// Résumé du site pour les assistants IA (https://llmstxt.org).
+const [essentiel] = offers;
+writeFileSync(
+  join(OUT, "llms.txt"),
+  `# ${site.brand}
+
+> ${site.brand} (${site.name}, ${site.legal.status.toLowerCase()} basé à Bordeaux) crée des sites internet professionnels pour indépendants, artisans et petites entreprises, à partir de ${euro(essentiel.price)}. Clients à Bordeaux et partout en France, à distance.
+
+## Offres
+
+${offers.map((o) => `- ${o.name} : à partir de ${euro(o.price)}. ${o.pitch} Inclus : ${o.features.map((f) => f[0].toLowerCase() + f.slice(1)).join(", ")}.`).join("\n")}
+- ${maintenance.name} : ${maintenance.priceFrom} à ${maintenance.priceTo} € par mois. ${maintenance.note}
+
+## Pages
+
+${indexed.map((p) => `- [${p.title.replace(` | ${site.brand}`, "")}](${abs(p.path)}): ${p.description}`).join("\n")}
+
+## Réalisations
+
+${projects.map((p) => `- [${p.name}](${p.url}): ${p.activity}. ${p.summary}`).join("\n")}
+
+## Contact
+
+${[site.email && `- Email : ${site.email}`, site.phone && `- Téléphone : ${site.phone}`, site.googleProfile && `- Fiche Google : ${site.googleProfile}`, "- Devis gratuit : " + abs("/contact/")].filter(Boolean).join("\n")}
 `
 );
 writeFileSync(join(OUT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${abs("/sitemap.xml")}\n`);

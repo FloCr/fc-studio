@@ -9,6 +9,7 @@ import {
   faqSchema,
   ctaSection,
 } from "../components.mjs";
+import { relatedGuides } from "../guides.mjs";
 import { businessSchema } from "./home.mjs";
 
 const pageFaq = [
@@ -75,6 +76,7 @@ export default {
     offersSection({ withExtras: false }),
     processSection(),
     faqSection(pageFaq, { title: "Vos questions d'indépendant" }),
+    relatedGuides(["site-internet-sage-femme", "etre-cite-par-chatgpt"]),
     ctaSection(),
   ].join("\n"),
 };

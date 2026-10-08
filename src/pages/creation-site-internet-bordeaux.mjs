@@ -10,6 +10,7 @@ import {
   faqSchema,
   ctaSection,
 } from "../components.mjs";
+import { relatedGuides } from "../guides.mjs";
 import { businessSchema } from "./home.mjs";
 
 const pageFaq = [
@@ -79,6 +80,7 @@ export default {
     offersSection({ withExtras: false }),
     processSection(),
     faqSection(pageFaq, { title: "Vos questions sur un site à Bordeaux" }),
+    relatedGuides(["apparaitre-google-maps-bordeaux", "etre-cite-par-chatgpt"]),
     ctaSection({ title: "Parlons de votre site à Bordeaux." }),
   ].join("\n"),
 };

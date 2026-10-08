@@ -1,48 +1,20 @@
 import { site, faq, offers, maintenance } from "../config.mjs";
-import { u, abs, euro, icon } from "../lib.mjs";
+import { u, abs, euro } from "../lib.mjs";
 import {
   pageHero,
   cardsSection,
   projectsSection,
   offersSection,
   processSection,
-  sectionHead,
+  audiencesSection,
   faqSection,
   faqSchema,
   ctaSection,
 } from "../components.mjs";
+import { relatedGuides } from "../guides.mjs";
 import { businessSchema } from "./home.mjs";
 
 const [essentiel, pro, acquisition] = offers;
-
-const audiences = `
-<section class="section section-alt" id="pour-qui">
-  <div class="container">
-    ${sectionHead({
-      eyebrow: "Pour qui",
-      title: "À qui s'adressent ces sites à petit prix ?",
-      intro:
-        "Aux indépendants, artisans et petites entreprises qui veulent un site professionnel sans payer le prix d'une agence. Vous m'expliquez votre activité, je m'occupe du reste : conception, technique, mise en ligne.",
-    })}
-    <div class="audiences">
-      <a class="audience" href="${u("/creation-site-internet-artisan/")}" data-reveal>
-        <h3>Artisans</h3>
-        <p>Plombiers, chauffagistes, électriciens, entreprises de rénovation : un site qui donne envie d'appeler et de demander un devis.</p>
-        <span class="link-arrow">Site pour artisan${icon("arrow")}</span>
-      </a>
-      <a class="audience" href="${u("/creation-site-internet-independant/")}" data-reveal>
-        <h3>Indépendants et professions libérales</h3>
-        <p>Thérapeutes, coachs, consultants, professions de santé : un site clair qui inspire confiance et facilite la prise de rendez-vous.</p>
-        <span class="link-arrow">Site pour indépendant${icon("arrow")}</span>
-      </a>
-      <div class="audience" data-reveal>
-        <h3>Commerces, restaurants et TPE</h3>
-        <p>Horaires, adresse, services, carte ou catalogue : l'essentiel de votre activité, accessible en quelques secondes depuis un téléphone.</p>
-        <a class="link-arrow" href="#devis">Parler de mon projet${icon("arrow")}</a>
-      </div>
-    </div>
-  </div>
-</section>`;
 
 const pageFaq = [
   {
@@ -134,7 +106,12 @@ export default {
         { title: "Mise en ligne comprise", text: "Nom de domaine, hébergement et connexion sécurisée (https) inclus la première année." },
       ],
     }),
-    audiences,
+    audiencesSection({
+      title: "À qui s'adressent ces sites à petit prix ?",
+      intro:
+        "Aux indépendants, artisans et petites entreprises qui veulent un site professionnel sans payer le prix d'une agence. Vous m'expliquez votre activité, je m'occupe du reste : conception, technique, mise en ligne.",
+      alt: true,
+    }),
     projectsSection({ title: "Quelques sites déjà réalisés" }),
     offersSection({
       title: "Ce que comprend chaque formule",
@@ -142,6 +119,7 @@ export default {
     }),
     processSection(),
     faqSection(pageFaq, { title: "Questions sur les sites à petit prix" }),
+    relatedGuides(["prix-site-internet", "wix-wordpress-ou-sur-mesure"]),
     ctaSection({ title: "Demandez votre devis gratuit." }),
   ].join("\n"),
 };

@@ -1,6 +1,7 @@
 import { site, faq } from "../config.mjs";
 import { u } from "../lib.mjs";
 import { offersSection, processSection, faqSection, faqSchema, ctaSection } from "../components.mjs";
+import { relatedGuides } from "../guides.mjs";
 import { businessSchema } from "./home.mjs";
 
 const pricingFaq = faq.filter((f) =>
@@ -9,7 +10,7 @@ const pricingFaq = faq.filter((f) =>
 
 export default {
   path: "/tarifs/",
-  title: "Tarifs création de site internet, dès 200 € | " + site.brand,
+  title: "Prix d'un site internet : tarifs et offres détaillés | " + site.brand,
   description:
     "Site Essentiel à partir de 200 €, Site Pro à partir de 499 €, Site + Acquisition à partir de 900 €. Ce qui est inclus, le cadre de chaque offre et l'hébergement.",
   crumbs: [{ name: "Tarifs", path: "/tarifs/" }],
@@ -23,6 +24,7 @@ export default {
     }),
     processSection(),
     faqSection(pricingFaq, { title: "Questions sur les tarifs" }),
+    relatedGuides(["prix-site-internet", "wix-wordpress-ou-sur-mesure"]),
     ctaSection(),
   ].join("\n"),
   bodyClass: "page-tarifs",

@@ -9,6 +9,7 @@ import {
   faqSchema,
   ctaSection,
 } from "../components.mjs";
+import { relatedGuides } from "../guides.mjs";
 import { businessSchema } from "./home.mjs";
 
 const pageFaq = [
@@ -75,6 +76,7 @@ export default {
     offersSection({ withExtras: false }),
     processSection(),
     faqSection(pageFaq, { title: "Vos questions d'artisan" }),
+    relatedGuides(["site-internet-plombier", "site-internet-ou-fiche-google"]),
     ctaSection({ title: "Parlons de votre site d'artisan." }),
   ].join("\n"),
 };

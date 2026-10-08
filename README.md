@@ -15,6 +15,7 @@ npm run dev     # build + prévisualisation sur http://localhost:4000
 src/
   config.mjs       contenu : offres, réalisations, FAQ, coordonnées
   pages/           une page par fichier (titre, description, contenu)
+  guides/          un guide par fichier, déclaré dans guides.mjs (rubrique /guides/)
   components.mjs   sections réutilisables
   layout.mjs       <head>, en-tête, pied de page
   assets/          CSS, JS, police, images

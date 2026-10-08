@@ -60,8 +60,8 @@ export const hero = () => {
 <section class="hero">
   <div class="container hero-grid">
     <div class="hero-copy">
-      <h1 class="hero-title">Création de sites web modernes, rapides et efficaces.</h1>
-      <p class="hero-sub">Des sites vitrines sur mesure pour les indépendants, artisans et petites entreprises.</p>
+      <h1 class="hero-title">Création de sites internet pour indépendants, artisans et petites entreprises.</h1>
+      <p class="hero-sub">Des sites vitrines sur mesure, modernes, rapides et efficaces.</p>
       <p class="hero-price"><span>À partir de</span> <strong>200 €</strong><em>Devis gratuit, sans engagement</em></p>
       <div class="btn-row">
         <a class="btn btn-primary btn-lg" href="#devis">Demander un devis${icon("arrow")}</a>
@@ -311,7 +311,7 @@ export const seoSection = () => `
       <p class="eyebrow">Référencement</p>
       <h2 class="section-title" id="seo-title">Le référencement est pris en compte dès la création du site</h2>
       <p class="lead">Un site invisible sur Google ne sert à rien. Le vôtre part sur des bases techniques solides.</p>
-      <p>Vos clients cherchent aussi sur ChatGPT et dans les réponses IA de Google. Ces outils, comme Google, mettent en avant les sites clairs, rapides et bien structurés (activité, zone d'intervention, coordonnées). Votre site est conçu pour ça.</p>
+      <p>Vos clients cherchent aussi sur ChatGPT et dans les réponses IA de Google. Ces outils, comme Google, mettent en avant les sites clairs, rapides et bien structurés (activité, zone d'intervention, coordonnées). Votre site est conçu pour ça (<a href="${u("/guides/etre-cite-par-chatgpt/")}">comment être cité par ChatGPT</a>).</p>
       <p class="muted">Personne ne peut honnêtement vous garantir la première place sur Google, ni d'être cité par ChatGPT. Pour aller plus loin, l'offre Site + Acquisition ajoute le référencement local et des pages ciblées sur les recherches de vos clients.</p>
     </div>
     <div class="panel" data-reveal>
@@ -351,8 +351,8 @@ export const developerSection = () => `
 // FAQ
 // ---------------------------------------------------------------------------
 
-export const faqSection = (items = faqItems, { title = "Questions fréquentes" } = {}) => `
-<section class="section" id="faq" aria-labelledby="faq-title">
+export const faqSection = (items = faqItems, { title = "Questions fréquentes", alt = false } = {}) => `
+<section class="section${alt ? " section-alt" : ""}" id="faq" aria-labelledby="faq-title">
   <div class="container faq-wrap">
     ${sectionHead({ eyebrow: "FAQ", title: `<span id="faq-title">${title}</span>` })}
     <div class="faq">
@@ -507,6 +507,35 @@ export const cardsSection = ({ id, eyebrow, title, intro, items, alt = false }) 
       </div>`
         )
         .join("")}
+    </div>
+  </div>
+</section>`;
+
+// Publics visés, avec liens vers les pages services.
+export const audiencesSection = ({
+  title = "Un site pour votre métier",
+  intro = "Artisans, indépendants, commerces : chaque site part de ce que vos clients cherchent et de la façon dont ils vous contactent.",
+  alt = false,
+} = {}) => `
+<section class="section${alt ? " section-alt" : ""}" id="pour-qui">
+  <div class="container">
+    ${sectionHead({ eyebrow: "Pour qui", title, intro })}
+    <div class="audiences">
+      <a class="audience" href="${u("/creation-site-internet-artisan/")}" data-reveal>
+        <h3>Artisans</h3>
+        <p>Plombiers, chauffagistes, électriciens, entreprises de rénovation : un site qui donne envie d'appeler et de demander un devis.</p>
+        <span class="link-arrow">Site pour artisan${icon("arrow")}</span>
+      </a>
+      <a class="audience" href="${u("/creation-site-internet-independant/")}" data-reveal>
+        <h3>Indépendants et professions libérales</h3>
+        <p>Thérapeutes, coachs, consultants, professions de santé : un site clair qui inspire confiance et facilite la prise de rendez-vous.</p>
+        <span class="link-arrow">Site pour indépendant${icon("arrow")}</span>
+      </a>
+      <div class="audience" data-reveal>
+        <h3>Commerces, restaurants et TPE</h3>
+        <p>Horaires, adresse, services, carte ou catalogue : l'essentiel de votre activité, accessible en quelques secondes depuis un téléphone.</p>
+        <a class="link-arrow" href="#devis">Parler de mon projet${icon("arrow")}</a>
+      </div>
     </div>
   </div>
 </section>`;

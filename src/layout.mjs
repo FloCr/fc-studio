@@ -64,7 +64,7 @@ ${schemas.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</s
 };
 
 const header = (page) => {
-  const href = (item) => (page.isHome ? item.anchor : u(item.page));
+  const href = (item) => (page.isHome && item.anchor ? item.anchor : u(item.page));
   // Toutes les pages se terminent par le formulaire, sauf celles marquées noForm.
   const ctaHref = page.noForm ? u("/contact/") : "#devis";
   return `<header class="site-header" data-header>
@@ -110,6 +110,7 @@ const footer = () => `<footer class="site-footer">
         <li><a href="${u("/tarifs/")}">Tarifs</a></li>
         <li><a href="${u("/#processus")}">Processus</a></li>
         <li><a href="${u("/#faq")}">FAQ</a></li>
+        <li><a href="${u("/guides/")}">Guides</a></li>
         <li><a href="${u("/contact/")}">Contact</a></li>
       </ul>
     </nav>
