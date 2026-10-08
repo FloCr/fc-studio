@@ -250,6 +250,7 @@ export const extrasBlock = () => `
 <div class="extras" data-reveal>
   <p class="extras-title">Options disponibles sur devis</p>
   <ul class="chips">${extras.map((e) => `<li>${e}</li>`).join("")}</ul>
+  <p class="section-more"><a class="link-arrow" href="${u("/fonctionnalites/")}">Voir les options et des exemples concrets${icon("arrow")}</a></p>
 </div>`;
 
 export const offersSection = ({ tag = "h2", title, intro, withExtras = true } = {}) => `
@@ -334,7 +335,10 @@ export const developerSection = () => `
       <ul class="custom-list">
         ${custom.map((c) => `<li><strong>${c.title}</strong><span>${c.text}</span></li>`).join("")}
       </ul>
-      <a class="btn btn-light" href="#devis" data-offer="sur-mesure">Parler de mon projet${icon("arrow")}</a>
+      <div class="btn-row">
+        <a class="btn btn-light" href="#devis" data-offer="sur-mesure">Parler de mon projet${icon("arrow")}</a>
+        <a class="link-arrow" href="${u("/fonctionnalites/")}">Voir des exemples${icon("arrow")}</a>
+      </div>
     </div>
   </div>
 </section>`;
@@ -495,6 +499,7 @@ export const cardsSection = ({ id, eyebrow, title, intro, items, alt = false }) 
       <div class="card" data-reveal>
         <h3>${c.title}</h3>
         <p>${c.text}</p>
+        ${c.example ? `<p class="card-example">Exemple : <a href="${esc(c.example.url)}" target="_blank" rel="noopener">${esc(c.example.label)}<span class="visually-hidden"> (nouvel onglet)</span></a></p>` : ""}
       </div>`
         )
         .join("")}

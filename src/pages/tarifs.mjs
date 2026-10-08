@@ -1,4 +1,5 @@
 import { site, faq } from "../config.mjs";
+import { u } from "../lib.mjs";
 import { offersSection, processSection, faqSection, faqSchema, ctaSection } from "../components.mjs";
 import { businessSchema } from "./home.mjs";
 
@@ -18,7 +19,7 @@ export default {
       tag: "h1",
       title: "Tarifs : votre site internet à partir de 200 €",
       intro:
-        "Trois offres au périmètre clair. Vous savez dès le départ ce qui est inclus, combien de pages, combien de séries de modifications. Le prix final est fixé dans le devis, avant de commencer.",
+        `Trois offres au périmètre clair. Vous savez dès le départ ce qui est inclus, combien de pages, combien de séries de modifications. Le prix final est fixé dans le devis, avant de commencer. Pour savoir pourquoi ces prix restent accessibles, voir la page <a href="${u("/creation-site-internet/")}">création de site internet pas cher</a>.`,
     }),
     processSection(),
     faqSection(pricingFaq, { title: "Questions sur les tarifs" }),

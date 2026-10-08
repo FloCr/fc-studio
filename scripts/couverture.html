@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- Photo de couverture de la fiche Google Business Profile (1920×1080, 16:9).
+     Google rogne les bords selon l'écran : texte centré, loin des bords ;
+     seules les maquettes du bas peuvent être coupées.
+     Export PNG (Chrome headless, --screenshot) dans scripts/logo/couverture.png -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Manrope"; font-weight: 400 800; src: url("../src/assets/fonts/manrope-latin.woff2") format("woff2"); }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    width: 1920px; height: 1080px; overflow: hidden; position: relative;
+    font-family: "Manrope", sans-serif; color: #f8fafc; text-align: center;
+    background:
+      radial-gradient(1000px 520px at 50% 105%, rgb(34 197 94 / .16), transparent 70%),
+      radial-gradient(1400px 800px at 50% 0%, #1e293b, transparent 70%),
+      #0f172a;
+  }
+
+  .copy { position: absolute; left: 0; right: 0; top: 150px; }
+  .brand { display: inline-flex; align-items: center; gap: 16px; font-size: 34px; font-weight: 800; letter-spacing: -0.03em; }
+  .brand svg { width: 56px; height: 56px; }
+  .brand i { font-style: normal; color: #22c55e; }
+  .brand b { font-weight: 800; }
+  .brand span { font-weight: 600; color: #94a3b8; letter-spacing: -0.01em; font-size: 26px; margin-left: 6px; }
+  h1 { margin-top: 34px; font-size: 76px; line-height: 1.04; letter-spacing: -0.045em; font-weight: 800; }
+  h1 em { font-style: normal; color: #60a5fa; }
+  .row { margin-top: 32px; display: flex; justify-content: center; align-items: center; gap: 14px; }
+  .price { font-size: 30px; font-weight: 600; color: #cbd5e1; margin-right: 18px; }
+  .price strong { font-size: 46px; font-weight: 800; letter-spacing: -0.04em; color: #fff; margin-left: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px 12px 12px; border-radius: 999px; background: rgb(255 255 255 / .07); border: 1px solid rgb(255 255 255 / .14); font-size: 23px; font-weight: 700; }
+  .chip b { width: 30px; height: 30px; border-radius: 50%; background: #22c55e; display: grid; place-items: center; }
+  .chip svg { width: 17px; height: 17px; }
+
+  .browser { position: absolute; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 40px 90px -30px rgb(0 0 0 / .7); }
+  .bar { height: 34px; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; display: flex; gap: 8px; align-items: center; padding-left: 16px; }
+  .bar i { width: 11px; height: 11px; border-radius: 50%; background: #cbd5e1; }
+  .browser img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; }
+  .phone { position: absolute; border: 8px solid #020617; border-radius: 36px; overflow: hidden; background: #020617; box-shadow: 0 40px 80px -24px rgb(0 0 0 / .75); }
+  .phone img { display: block; width: 100%; border-radius: 28px; aspect-ratio: 390/780; object-fit: cover; object-position: top; }
+
+  .b-left  { left: 330px;  top: 610px; width: 600px; }
+  .b-right { left: 990px;  top: 610px; width: 600px; }
+  .b-main  { left: 610px;  top: 560px; width: 700px; }
+  .p-left  { left: 250px;  top: 670px; width: 200px; }
+  .p-right { left: 1470px; top: 670px; width: 200px; }
+</style>
+</head>
+<body>
+  <div class="copy">
+    <p class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#f8fafc"/><path fill="#0f172a" d="M8.5 14h10v4.6h-5V22h6.5v4.4h-6.5V34h-5z"/><path d="M35.5 18.6a7 7 0 1 0 0 10.8" fill="none" stroke="#0f172a" stroke-width="4.6"/><circle cx="40" cy="31.6" r="2.7" fill="#22c55e"/></svg><b>FC Studio<i>.</i></b><span>Florian Carrière</span></p>
+    <h1>Création de sites internet pour<br><em>indépendants, artisans et TPE</em></h1>
+    <div class="row">
+      <p class="price">À partir de <strong>200 €</strong></p>
+      <span class="chip"><b><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b>Adapté aux mobiles</span>
+      <span class="chip"><b><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b>Pensé pour Google</span>
+      <span class="chip"><b><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></b>Devis gratuit</span>
+    </div>
+  </div>
+
+  <div class="browser b-left"><div class="bar"><i></i><i></i><i></i></div><img src="../src/assets/img/realisations/clemence-desktop-1440.jpg" alt=""></div>
+  <div class="browser b-right"><div class="bar"><i></i><i></i><i></i></div><img src="../src/assets/img/realisations/mathieu-desktop-1440.jpg" alt=""></div>
+  <div class="browser b-main"><div class="bar"><i></i><i></i><i></i></div><img src="../src/assets/img/realisations/crea-desktop-1440.jpg" alt=""></div>
+  <div class="phone p-left"><img src="../src/assets/img/realisations/clemence-mobile-390.jpg" alt=""></div>
+  <div class="phone p-right"><img src="../src/assets/img/realisations/mathieu-mobile-390.jpg" alt=""></div>
+</body>
+</html>

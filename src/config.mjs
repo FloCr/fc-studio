@@ -19,13 +19,17 @@ export const site = {
   // (ex. https://flocr.github.io/fcei), tous les liens s'adaptent.
   url: "https://fc-studio.fr",
   name: "Florian Carrière",
-  tagline: "Studio web",
+  // Nom commercial, affiché à côté du nom et repris dans les données structurées.
+  brand: "FC Studio",
+  tagline: "FC Studio · Studio web",
   lang: "fr",
   locale: "fr_FR",
 
   // Coordonnées affichées (laisser vide pour masquer).
   email: "florian@fc-studio.fr",
   phone: "", // ex. "06 12 34 56 78"
+  // Fiche Google Business Profile (lien dans le pied de page et données structurées).
+  googleProfile: "https://www.google.com/search?kgmid=/g/11zy3b3nrz",
   // Zone servie (textes et données structurées), facultative.
   area: "",
 

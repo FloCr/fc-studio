@@ -96,10 +96,11 @@ const footer = () => `<footer class="site-footer">
         ${logo()}
         <span class="brand-text"><strong>${esc(site.name)}</strong><span>${esc(site.tagline)}</span></span>
       </a>
-      <p>Sites internet professionnels pour indépendants, artisans et petites entreprises, à partir de 200 €.</p>
+      <p>${esc(site.brand)} : sites internet professionnels pour indépendants, artisans et petites entreprises, à partir de 200 €.</p>
       ${join([
         site.email && `<p><a href="mailto:${esc(site.email)}">${icon("mail")}${esc(site.email)}</a></p>`,
         site.phone && `<p><a href="tel:${site.phone.replace(/\s/g, "")}">${icon("phone")}${esc(site.phone)}</a></p>`,
+        site.googleProfile && `<p><a href="${esc(site.googleProfile)}" target="_blank" rel="noopener">${icon("star")}Fiche Google et avis<span class="visually-hidden"> (nouvel onglet)</span></a></p>`,
       ])}
     </div>
     <nav aria-label="Pages">
@@ -118,6 +119,7 @@ const footer = () => `<footer class="site-footer">
         <li><a href="${u("/creation-site-internet/")}">Création de site internet</a></li>
         <li><a href="${u("/creation-site-internet-artisan/")}">Site internet pour artisan</a></li>
         <li><a href="${u("/creation-site-internet-independant/")}">Site pour indépendant</a></li>
+        <li><a href="${u("/fonctionnalites/")}">Options et fonctionnalités</a></li>
       </ul>
     </nav>
   </div>

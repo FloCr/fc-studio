@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- Modèles du logo, une variante par ancre (#carre, #clair, #sombre).
+     Export PNG (Chrome headless, --screenshot) dans scripts/logo/ :
+     carre 720×720 (Google Business Profile, réseaux), clair et sombre 1200×360. -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Manrope"; font-weight: 400 800; src: url("../src/assets/fonts/manrope-latin.woff2") format("woff2"); }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: "Manrope", sans-serif; overflow: hidden; }
+  .v { display: none; }
+  .v:target { display: flex; }
+
+  /* Carré : fond plein, monogramme centré dans la zone sûre du recadrage rond de Google. */
+  #carre { width: 720px; height: 720px; background: #0f172a; align-items: center; justify-content: center; }
+  #carre svg { width: 400px; }
+
+  /* Horizontal : monogramme + nom. */
+  #clair, #sombre { width: 1200px; height: 360px; align-items: center; gap: 44px; padding: 0 96px; }
+  #clair { background: #f8fafc; color: #0f172a; }
+  #sombre { background: #0f172a; color: #f8fafc; }
+  .mark { width: 176px; height: 176px; flex: none; }
+  #sombre .mark rect { fill: #f8fafc; }
+  #sombre .mark .ink { fill: #0f172a; }
+  #sombre .mark .ink-stroke { stroke: #0f172a; }
+  .name { font-size: 112px; font-weight: 800; letter-spacing: -0.045em; line-height: 0.95; }
+  .name i { font-style: normal; color: #22c55e; }
+  .sub { margin-top: 18px; font-size: 32px; font-weight: 600; letter-spacing: -0.01em; color: #64748b; }
+  #sombre .sub { color: #94a3b8; }
+</style>
+</head>
+<body>
+  <div class="v" id="carre">
+    <!-- Lettres du favicon (x 8,5→42,7 ; y 14→34) recentrées sur leur propre boîte. -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="8.5 10 34.2 28"><path fill="#f8fafc" d="M8.5 14h10v4.6h-5V22h6.5v4.4h-6.5V34h-5z"/><path d="M35.5 18.6a7 7 0 1 0 0 10.8" fill="none" stroke="#f8fafc" stroke-width="4.6"/><circle cx="40" cy="31.6" r="2.7" fill="#22c55e"/></svg>
+  </div>
+
+  <div class="v" id="clair">
+    <svg class="mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#0f172a"/><path class="ink" fill="#f8fafc" d="M8.5 14h10v4.6h-5V22h6.5v4.4h-6.5V34h-5z"/><path class="ink-stroke" d="M35.5 18.6a7 7 0 1 0 0 10.8" fill="none" stroke="#f8fafc" stroke-width="4.6"/><circle cx="40" cy="31.6" r="2.7" fill="#22c55e"/></svg>
+    <div><p class="name">FC Studio<i>.</i></p><p class="sub">Florian Carrière · Création de sites internet</p></div>
+  </div>
+
+  <div class="v" id="sombre">
+    <svg class="mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#0f172a"/><path class="ink" fill="#f8fafc" d="M8.5 14h10v4.6h-5V22h6.5v4.4h-6.5V34h-5z"/><path class="ink-stroke" d="M35.5 18.6a7 7 0 1 0 0 10.8" fill="none" stroke="#f8fafc" stroke-width="4.6"/><circle cx="40" cy="31.6" r="2.7" fill="#22c55e"/></svg>
+    <div><p class="name">FC Studio<i>.</i></p><p class="sub">Florian Carrière · Création de sites internet</p></div>
+  </div>
+</body>
+</html>

@@ -18,6 +18,7 @@ export const businessSchema = () => ({
   "@type": "ProfessionalService",
   "@id": abs("/#entreprise"),
   name: site.name,
+  alternateName: site.brand,
   description:
     "Création de sites internet professionnels pour indépendants, artisans et petites entreprises, à partir de 200 €.",
   url: abs("/"),
@@ -25,7 +26,10 @@ export const businessSchema = () => ({
   priceRange: "À partir de 200 €",
   ...(site.email && { email: site.email }),
   ...(site.phone && { telephone: site.phone }),
-  ...(site.area && { areaServed: site.area }),
+  logo: abs("/apple-touch-icon.png"),
+  address: { "@type": "PostalAddress", addressLocality: "Bordeaux", postalCode: "33200", addressCountry: "FR" },
+  areaServed: site.area || { "@type": "Country", name: "France" },
+  ...(site.googleProfile && { sameAs: [site.googleProfile] }),
   founder: { "@type": "Person", name: site.name, jobTitle: "Développeur web" },
   makesOffer: offers.map((o) => ({
     "@type": "Offer",
@@ -50,6 +54,7 @@ export default {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: site.name,
+      alternateName: site.brand,
       url: abs("/"),
       inLanguage: "fr-FR",
     },

@@ -1275,6 +1275,16 @@ ol {
   font-size: 0.9688rem;
 }
 
+.card-example {
+  margin-top: 14px;
+  font-size: 0.875rem;
+}
+
+.card-example a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .reason-icon {
   display: grid;
   place-items: center;
@@ -1636,6 +1646,14 @@ a.audience:hover {
 .custom-list span {
   color: var(--on-dark-2);
   font-size: 0.9375rem;
+}
+
+.custom-card .btn-row {
+  align-items: center;
+}
+
+.custom-card .link-arrow {
+  color: var(--white);
 }
 
 /* ==========================================================================
