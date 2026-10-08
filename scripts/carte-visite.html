@@ -1,0 +1,97 @@
+<!doctype html>
+<!-- Carte de visite 85×55 mm, fond perdu 3 mm (pages de 91×61 mm).
+     Export PDF (Chrome headless, --print-to-pdf) : page 1 recto, page 2 verso.
+     Chrome intègre la police en Type 3, refusé par les imprimeurs : vectoriser
+     les textes ensuite avec
+     gs -o carte-visite.pdf -sDEVICE=pdfwrite -dNoOutputFonts chrome.pdf
+     Garder textes et QR code à au moins 4 mm du trait de coupe. -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Carte de visite</title>
+<style>
+  @font-face { font-family: "Manrope"; font-weight: 400 800; src: url("../src/assets/fonts/manrope-latin.woff2") format("woff2"); }
+  @page { size: 91mm 61mm; margin: 0; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Manrope", sans-serif; color: #0f172a; background: #cbd5e1; }
+
+  .card { position: relative; width: 91mm; height: 61mm; overflow: hidden; page-break-after: always; break-after: page; }
+  /* Zone utile : 3 mm de fond perdu + 4 mm de marge de sécurité. */
+  .safe { position: absolute; inset: 7mm; }
+
+  /* Recto : la marque. */
+  .front { background: #0f172a; color: #f8fafc; }
+  .front .glow { position: absolute; right: -24mm; top: -30mm; width: 78mm; height: 78mm; border-radius: 50%; background: radial-gradient(closest-side, rgb(37 99 235 / .38), rgb(37 99 235 / 0)); }
+  .front .safe { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 3mm; }
+  .front .mark { display: block; width: 25mm; height: auto; }
+  .front .name { margin-top: 3.2mm; font-size: 10pt; font-weight: 800; letter-spacing: -0.02em; }
+  .front .tag { margin-top: .6mm; font-size: 6pt; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #94a3b8; }
+  .front .line { position: absolute; left: 0; right: 0; bottom: 0; font-size: 7pt; font-weight: 700; letter-spacing: -0.01em; color: #cbd5e1; }
+  .front .line i { font-style: normal; color: #22c55e; }
+
+  /* Verso : les coordonnées. */
+  .back { background: #fff; }
+  .back .bar { position: absolute; left: 0; top: 0; bottom: 0; width: 5.5mm; background: #0f172a; }
+  .back .bar i { position: absolute; left: 3mm; top: 9.2mm; width: 1.6mm; height: 1.6mm; border-radius: 50%; background: #22c55e; }
+  .back .safe { left: 11mm; right: 8mm; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr auto; column-gap: 4mm; }
+  .back .who { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: flex-start; gap: 3mm; }
+  .back .mini { width: 7mm; height: 7mm; flex: none; }
+  .back .name { font-size: 13pt; font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; }
+  .back .role { margin-top: 1.3mm; font-size: 6.8pt; font-weight: 600; line-height: 1.35; color: #475569; }
+  .back .offer { grid-column: 1; align-self: center; }
+  .back .pitch { max-width: 50mm; font-size: 7pt; font-weight: 700; line-height: 1.4; letter-spacing: -0.01em; color: #1e40af; }
+  .back .price { margin-top: 1.2mm; font-size: 6.5pt; font-weight: 600; line-height: 1.4; letter-spacing: -0.01em; color: #64748b; }
+  .back .contact { grid-column: 1; align-self: end; display: grid; gap: 1.9mm; font-size: 7.5pt; font-weight: 600; letter-spacing: -0.01em; }
+  .back .contact span { display: flex; align-items: center; gap: 1.8mm; }
+  .back .contact svg { width: 3mm; height: 3mm; flex: none; color: #2563eb; }
+  .back .qr { grid-column: 2; grid-row: 2 / 4; align-self: end; display: grid; justify-items: center; gap: 1.3mm; }
+  .back .qr svg { width: 17mm; height: 17mm; display: block; }
+  .back .qr small { font-size: 5.5pt; font-weight: 600; color: #64748b; }
+
+  /* Aperçu à l'écran : les deux faces côte à côte. */
+  @media screen {
+    body { display: flex; flex-wrap: wrap; gap: 10mm; padding: 10mm; }
+    .card { box-shadow: 0 2mm 6mm rgb(15 23 42 / .25); }
+  }
+</style>
+</head>
+<body>
+  <section class="card front">
+    <div class="glow"></div>
+    <div class="safe">
+      <svg class="mark" viewBox="6 12 38 24" xmlns="http://www.w3.org/2000/svg"><path fill="#f8fafc" d="M8.5 14h10v4.6h-5V22h6.5v4.4h-6.5V34h-5z"/><path d="M35.5 18.6a7 7 0 1 0 0 10.8" fill="none" stroke="#f8fafc" stroke-width="4.6"/><circle cx="40" cy="31.6" r="2.7" fill="#22c55e"/></svg>
+      <p class="name">Florian Carrière</p>
+      <p class="tag">Studio web</p>
+      <p class="line">Je crée le site qui vous apporte des <i>clients ou patients</i>.</p>
+    </div>
+  </section>
+
+  <section class="card back">
+    <div class="bar"><i></i></div>
+    <div class="safe">
+      <div class="who">
+        <div>
+          <p class="name">Florian Carrière</p>
+          <p class="role">Création de sites internet<br>Visible sur Google et ChatGPT</p>
+        </div>
+        <svg class="mini" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#0f172a"/><path fill="#f8fafc" d="M8.5 14h10v4.6h-5V22h6.5v4.4h-6.5V34h-5z"/><path d="M35.5 18.6a7 7 0 1 0 0 10.8" fill="none" stroke="#f8fafc" stroke-width="4.6"/><circle cx="40" cy="31.6" r="2.7" fill="#22c55e"/></svg>
+      </div>
+      <div class="offer">
+        <p class="pitch">Augmentez votre activité grâce à un site rapide, moderne et bien référencé.</p>
+        <p class="price">À partir de 200 €</p>
+      </div>
+      <div class="contact">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>06 95 03 77 43</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>florian@fc-studio.fr</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>fc-studio.fr</span>
+      </div>
+      <div class="qr">
+        <!-- QR code vers https://fc-studio.fr (npm qrcode, correction M) -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" shape-rendering="crispEdges"><path stroke="#0f172a" d="M0 0.5h7m2 0h1m1 0h1m1 0h1m4 0h7M0 1.5h1m5 0h1m6 0h4m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h2m1 0h2m3 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m4 0h2m3 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h2m1 0h2m3 0h1m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h9m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m2 0h2m2 0h1M0 8.5h1m1 0h5m4 0h1m1 0h2m3 0h5M0 9.5h1m2 0h3m1 0h4m1 0h1m1 0h1m1 0h1m2 0h1m3 0h1M0 10.5h3m1 0h1m1 0h1m3 0h1m1 0h2m1 0h1m2 0h1m1 0h2m1 0h2M1 11.5h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m2 0h3m1 0h1m4 0h1M0 12.5h1m1 0h1m1 0h1m1 0h2m1 0h1m5 0h1m2 0h1m1 0h1m1 0h3M0 13.5h1m2 0h1m1 0h1m1 0h4m1 0h2m2 0h1m2 0h1m1 0h1m1 0h1M0 14.5h1m4 0h6m2 0h5m1 0h3m1 0h2M0 15.5h1m1 0h3m3 0h2m2 0h2m1 0h6m3 0h1M0 16.5h1m2 0h1m2 0h3m1 0h1m1 0h1m1 0h7m1 0h1M8 17.5h2m6 0h1m3 0h2M0 18.5h7m4 0h2m3 0h1m1 0h1m1 0h1m1 0h3M0 19.5h1m5 0h1m1 0h2m1 0h1m2 0h1m1 0h1m3 0h2m2 0h1M0 20.5h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h6m1 0h3M0 21.5h1m1 0h3m1 0h1m1 0h3m1 0h4m1 0h2m1 0h5M0 22.5h1m1 0h3m1 0h1m1 0h3m2 0h2m2 0h1m3 0h2m1 0h1M0 23.5h1m5 0h1m2 0h2m1 0h2m2 0h1m1 0h4m2 0h1M0 24.5h7m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h6"/></svg>
+        <small>Portfolio et tarifs</small>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

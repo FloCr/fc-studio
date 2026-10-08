@@ -281,14 +281,14 @@ export const steps = [
 ];
 
 export const seoPoints = [
-  "Structure HTML propre",
-  "Titres et descriptions pour chaque page",
-  "Affichage parfait sur mobile",
-  "Pages légères et rapides",
-  "Plan du site (sitemap)",
-  "Indexation par Google",
-  "Google Search Console",
-  "Référencement local selon l'offre",
+  "Votre site apparaît sur Google",
+  "Compris par ChatGPT et les assistants IA",
+  "Parfait sur téléphone",
+  "Rapide, même en 4G",
+  "Chaque page pensée pour une recherche de vos clients",
+  "Visible dans votre ville et alentours (selon l'offre)",
+  "Suivi de vos visites venues de Google",
+  "Une base technique propre, facile à lire pour Google",
 ];
 
 // ---------------------------------------------------------------------------

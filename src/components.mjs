@@ -306,8 +306,9 @@ export const seoSection = () => `
     <div data-reveal>
       <p class="eyebrow">Référencement</p>
       <h2 class="section-title" id="seo-title">Le référencement est pris en compte dès la création du site</h2>
-      <p class="lead">Un site qui n'apparaît pas sur Google ne sert pas à grand-chose. Chaque site part donc sur des bases techniques solides.</p>
-      <p class="muted">Personne ne peut honnêtement garantir la première place sur Google. En revanche, je fais en sorte que votre site soit propre, rapide et compréhensible pour les moteurs de recherche. Pour aller plus loin, l'offre Site + Acquisition ajoute le référencement local et des pages ciblées sur les recherches de vos clients.</p>
+      <p class="lead">Un site invisible sur Google ne sert à rien. Le vôtre part sur des bases techniques solides.</p>
+      <p>Vos clients cherchent aussi sur ChatGPT et dans les réponses IA de Google. Ces outils, comme Google, mettent en avant les sites clairs, rapides et bien structurés (activité, zone d'intervention, coordonnées). Votre site est conçu pour ça.</p>
+      <p class="muted">Personne ne peut honnêtement vous garantir la première place sur Google, ni d'être cité par ChatGPT. Pour aller plus loin, l'offre Site + Acquisition ajoute le référencement local et des pages ciblées sur les recherches de vos clients.</p>
     </div>
     <div class="panel" data-reveal>
       ${checklist(seoPoints, "checklist is-grid")}
