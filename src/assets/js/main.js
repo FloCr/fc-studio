@@ -38,6 +38,36 @@
     revealed.forEach((el) => el.classList.add("is-visible"));
   }
 
+  // Vitrine des réalisations
+  document.querySelectorAll("[data-showcase]").forEach((showcase) => {
+    const track = showcase.querySelector("[data-showcase-track]");
+    const slides = [...track.children];
+    const tabs = showcase.querySelectorAll("[data-showcase-go]");
+    const [prev, next] = showcase.querySelectorAll("[data-showcase-step]");
+    let current = 0;
+
+    const go = (i) => track.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft });
+    const setCurrent = (i) => {
+      current = i;
+      tabs.forEach((tab, j) => (i === j ? tab.setAttribute("aria-current", "true") : tab.removeAttribute("aria-current")));
+      prev.disabled = i === 0;
+      next.disabled = i === slides.length - 1;
+    };
+
+    tabs.forEach((tab) => tab.addEventListener("click", () => go(Number(tab.dataset.showcaseGo))));
+    [prev, next].forEach((btn) =>
+      btn.addEventListener("click", () => go(Math.max(0, Math.min(slides.length - 1, current + Number(btn.dataset.showcaseStep)))))
+    );
+
+    // Diapositive courante : déduite de la position de défilement.
+    const onTrackScroll = () => {
+      const step = slides[1].offsetLeft - slides[0].offsetLeft;
+      const i = Math.min(slides.length - 1, Math.round(track.scrollLeft / step));
+      if (i !== current) setCurrent(i);
+    };
+    track.addEventListener("scroll", onTrackScroll, { passive: true });
+  });
+
   // Formulaire de devis
   const form = document.querySelector("[data-lead-form]");
   if (!form) return;

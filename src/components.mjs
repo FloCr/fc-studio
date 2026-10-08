@@ -106,20 +106,52 @@ export const pageHero = ({ eyebrow, title, intro, actions = true }) => `
 // Réalisations
 // ---------------------------------------------------------------------------
 
-const projectCard = (p, featured) => `
-<article class="project${featured ? " is-featured" : ""}" data-reveal>
+const projectMeta = (p) => esc([p.activity, p.place].filter(Boolean).join(" · "));
+
+const projectCard = (p, featured, attrs = "data-reveal") => `
+<article class="project${featured ? " is-featured" : ""}" ${attrs}>
   <div class="project-media">
     ${browser(p, { sizes: featured ? "(min-width: 1100px) 680px, 92vw" : "(min-width: 900px) 520px, 92vw" })}
     ${featured ? phone(p, { sizes: "160px" }) : ""}
   </div>
   <div class="project-body">
-    <p class="project-meta">${esc(p.activity)} · ${esc(p.place)}</p>
+    <p class="project-meta">${projectMeta(p)}</p>
     <h3 class="project-title">${esc(p.name)}</h3>
     <p>${esc(p.summary)}</p>
     ${checklist(featured ? p.features : p.features.slice(0, 3), "checklist is-compact")}
     ${visitLink(p)}
   </div>
 </article>`;
+
+// Vitrine défilante : un projet à la fois, onglets + flèches.
+// Sans JS, la piste reste un simple défilement horizontal.
+const showcase = () => `
+<div class="showcase" data-showcase data-reveal>
+  <div class="showcase-nav">
+    <div class="showcase-tabs" aria-label="Choisir une réalisation">
+      ${projects
+        .map(
+          (p, i) => `
+      <button class="showcase-tab" type="button" data-showcase-go="${i}" aria-controls="slide-${p.id}"${i === 0 ? ' aria-current="true"' : ""}>
+        <span class="showcase-num" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+        <span class="showcase-name">${esc(p.name)}<small>${esc(p.activity)}</small></span>
+      </button>`
+        )
+        .join("")}
+    </div>
+    <div class="showcase-arrows">
+      <button class="showcase-arrow is-prev" type="button" data-showcase-step="-1" aria-label="Réalisation précédente" disabled>${icon("arrow")}</button>
+      <button class="showcase-arrow" type="button" data-showcase-step="1" aria-label="Réalisation suivante">${icon("arrow")}</button>
+    </div>
+  </div>
+  <div class="showcase-track" data-showcase-track tabindex="0" role="region" aria-roledescription="carrousel" aria-label="Réalisations">
+    ${projects
+      .map((p, i) =>
+        projectCard(p, true, `id="slide-${p.id}" aria-roledescription="diapositive" aria-label="${i + 1} sur ${projects.length} : ${esc(p.name)}"`)
+      )
+      .join("")}
+  </div>
+</div>`;
 
 export const projectsSection = ({ title = "Des sites réels, en ligne, pour de vraies entreprises", intro, more = true } = {}) => `
 <section class="section" id="realisations" aria-labelledby="realisations-title">
@@ -129,9 +161,7 @@ export const projectsSection = ({ title = "Des sites réels, en ligne, pour de v
       title: `<span id="realisations-title">${title}</span>`,
       intro: intro ?? "Un artisan, un plombier, une sage-femme : trois métiers, trois sites conçus pour que leurs clients les trouvent et les contactent.",
     })}
-    <div class="projects">
-      ${projects.map((p, i) => projectCard(p, i === 0)).join("")}
-    </div>
+    ${showcase()}
     ${more ? `<p class="section-more"><a class="link-arrow" href="${u("/realisations/")}">Voir le détail des réalisations${icon("arrow")}</a></p>` : ""}
   </div>
 </section>`;
@@ -149,7 +179,7 @@ export const projectsDetailed = () => `
         ${phone(p, { sizes: "160px", eager: i === 0 })}
       </div>
       <div class="case-body">
-        <p class="project-meta">${esc(p.activity)} · ${esc(p.place)}</p>
+        <p class="project-meta">${projectMeta(p)}</p>
         <h2 class="project-title">${esc(p.name)}</h2>
         <p>${esc(p.summary)}</p>
         <h3 class="mini-title">Ce que comprend le site</h3>

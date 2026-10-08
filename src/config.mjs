@@ -37,8 +37,8 @@ export const site = {
 
   // Délais indicatifs affichés dans la FAQ.
   delays: {
-    essentiel: "une à deux semaines",
-    pro: "deux à trois semaines",
+    essentiel: "quelques jours",
+    pro: "une à deux semaines",
   },
 
   // Mesure d'audience : renseigner l'un ou l'autre, rien n'est chargé sinon.
@@ -145,7 +145,7 @@ export const offers = [
 
 export const maintenance = {
   name: "Hébergement & maintenance",
-  priceFrom: 15,
+  priceFrom: 7,
   priceTo: 30,
   features: [
     "Hébergement et nom de domaine",
@@ -302,11 +302,11 @@ export const faq = [
   },
   {
     q: "Combien de temps faut-il pour créer un site ?",
-    a: `Comptez en général ${site.delays.essentiel} pour un Site Essentiel et ${site.delays.pro} pour un Site Pro, à partir du moment où j'ai vos textes et vos photos. Le délai exact est indiqué dans le devis.`,
+    a: `Comptez en général ${site.delays.essentiel} pour un Site Essentiel et ${site.delays.pro} pour un Site Pro, une fois le contenu validé ensemble. Ces délais sont donnés à titre indicatif : le délai exact est indiqué dans le devis.`,
   },
   {
     q: "Dois-je fournir les textes et les photos ?",
-    a: "Oui pour l'offre Essentiel : vous fournissez vos textes et vos photos, je m'occupe de la mise en page. Si vous préférez, la rédaction peut être ajoutée en option. Elle est incluse dans l'offre Site + Acquisition.",
+    a: "Comme vous préférez. Si vous avez déjà vos textes et vos photos, je les utilise et je m'occupe de la mise en page. Sinon, je vous propose des textes à partir d'un échange sur votre activité, que vous relisez et ajustez avant la mise en ligne. Dans les deux cas, cela ne rallonge pas les délais.",
   },
   {
     q: "Le site sera-t-il adapté aux mobiles ?",
