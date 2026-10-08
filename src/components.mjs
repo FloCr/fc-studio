@@ -60,7 +60,6 @@ export const hero = () => {
 <section class="hero">
   <div class="container hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">${esc(site.name)} · ${esc(site.tagline)}${site.area ? ` · ${esc(site.area)}` : ""}</p>
       <h1 class="hero-title">Création de sites web modernes, rapides et efficaces.</h1>
       <p class="hero-sub">Des sites vitrines sur mesure pour les indépendants, artisans et petites entreprises.</p>
       <p class="hero-price"><span>À partir de</span> <strong>200 €</strong><em>Devis gratuit, sans engagement</em></p>
