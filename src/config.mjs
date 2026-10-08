@@ -19,15 +19,17 @@ export const site = {
   // (ex. https://flocr.github.io/fcei), tous les liens s'adaptent.
   url: "https://fc-studio.fr",
   name: "Florian Carrière",
-  // Nom commercial, affiché à côté du nom et repris dans les données structurées.
+  // Nom commercial : nom du site dans Google et les partages (titres, og:site_name, données structurées).
   brand: "FC Studio",
+  // Nom de la fiche Google Business Profile, repris tel quel dans les données structurées.
+  businessName: "FC Studio - Florian Carrière",
   tagline: "FC Studio · Studio web",
   lang: "fr",
   locale: "fr_FR",
 
   // Coordonnées affichées (laisser vide pour masquer).
   email: "florian@fc-studio.fr",
-  phone: "", // ex. "06 12 34 56 78"
+  phone: "06 95 03 77 43",
   // Fiche Google Business Profile (lien dans le pied de page et données structurées).
   googleProfile: "https://www.google.com/search?kgmid=/g/11zy3b3nrz",
   // Zone servie (textes et données structurées), facultative.
@@ -55,7 +57,8 @@ export const site = {
 
   // Mentions légales (obligatoires pour un site professionnel en France).
   legal: {
-    publisher: "Florian Carrière",
+    // « EI » obligatoire après le nom de l'entrepreneur individuel (loi du 14 février 2022).
+    publisher: "Florian Carrière EI",
     status: "Entrepreneur individuel",
     siret: "917 618 928 00019",
     address: "37 rue Général Gouraud, 33200 Bordeaux",
@@ -95,7 +98,8 @@ export const offers = [
     ],
     limits: [
       "Jusqu'à 3 pages",
-      "Textes et photos fournis par vous",
+      "Textes fournis par vous ou rédigés par moi, au choix",
+      "Photos fournies par vous",
       "1 série de modifications incluse",
       "Fonctionnalités spécifiques sur devis",
     ],
@@ -163,7 +167,7 @@ export const maintenance = {
 
 export const extras = [
   "Page supplémentaire",
-  "Rédaction des textes",
+  "Rédaction optimisée pour Google",
   "Référencement local",
   "Fiche Google Business Profile",
   "Modifications ponctuelles",
@@ -310,7 +314,7 @@ export const faq = [
   },
   {
     q: "Dois-je fournir les textes et les photos ?",
-    a: "Comme vous préférez. Si vous avez déjà vos textes et vos photos, je les utilise et je m'occupe de la mise en page. Sinon, je vous propose des textes à partir d'un échange sur votre activité, que vous relisez et ajustez avant la mise en ligne. Dans les deux cas, cela ne rallonge pas les délais.",
+    a: "Comme vous préférez. Si vous avez déjà vos textes et vos photos, je les utilise et je m'occupe de la mise en page. Sinon, je vous propose des textes à partir d'un échange sur votre activité, que vous relisez et ajustez avant la mise en ligne. Dans les deux cas, c'est inclus et cela ne rallonge pas les délais. Une rédaction plus poussée, travaillée autour des recherches de vos clients, est proposée en option et comprise dans l'offre Site + Acquisition.",
   },
   {
     q: "Le site sera-t-il adapté aux mobiles ?",

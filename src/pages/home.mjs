@@ -17,7 +17,7 @@ export const businessSchema = () => ({
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "@id": abs("/#entreprise"),
-  name: site.name,
+  name: site.businessName,
   alternateName: site.brand,
   description:
     "Création de sites internet professionnels pour indépendants, artisans et petites entreprises, à partir de 200 €.",
@@ -43,7 +43,7 @@ export const businessSchema = () => ({
 export default {
   path: "/",
   isHome: true,
-  title: "Création de site internet professionnel dès 200 € | " + site.name,
+  title: "Création de site internet professionnel dès 200 € | " + site.brand,
   ogTitle: "Votre site internet professionnel à partir de 200 €",
   description:
     "Je crée des sites vitrines modernes, rapides et adaptés aux mobiles pour les indépendants, artisans et petites entreprises. À partir de 200 €, devis gratuit.",
@@ -53,8 +53,8 @@ export default {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: site.name,
-      alternateName: site.brand,
+      name: site.brand,
+      alternateName: site.name,
       url: abs("/"),
       inLanguage: "fr-FR",
     },

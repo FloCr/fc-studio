@@ -29,7 +29,9 @@ const tidyHtml = (html) =>
 
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
-cpSync("src/assets", join(OUT, "assets"), { recursive: true, filter: (p) => !p.endsWith(".css") });
+// Le CSS est intégré aux pages ; les JPG des réalisations ne servent qu'à scripts/couverture.html.
+const unpublished = (p) => p.endsWith(".css") || /realisations\/.+\.jpg$/.test(p);
+cpSync("src/assets", join(OUT, "assets"), { recursive: true, filter: (p) => !unpublished(p) });
 cpSync("src/static", OUT, { recursive: true });
 
 const css = minifyCss(readFileSync("src/assets/css/main.css", "utf8"));
@@ -43,12 +45,11 @@ for (const page of pages) {
 }
 
 const indexed = pages.filter((p) => !p.noindex).sort((a, b) => a.path.length - b.path.length);
-const today = new Date().toISOString().slice(0, 10);
 writeFileSync(
   join(OUT, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${indexed.map((p) => `  <url><loc>${abs(p.path)}</loc><lastmod>${today}</lastmod></url>`).join("\n")}
+${indexed.map((p) => `  <url><loc>${abs(p.path)}</loc></url>`).join("\n")}
 </urlset>
 `
 );

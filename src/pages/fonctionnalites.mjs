@@ -28,7 +28,7 @@ const pageFaq = [
 
 export default {
   path: "/fonctionnalites/",
-  title: "Options et fonctionnalités sur mesure pour votre site | " + site.name,
+  title: "Options et fonctionnalités sur mesure pour votre site | " + site.brand,
   ogTitle: "Options et fonctionnalités sur mesure pour votre site",
   description:
     "Comparateur avant / après, paiement en ligne Stripe ou bancaire, réservation, gestion des demandes, devis automatiques : exemples concrets d'options à ajouter à votre site.",
@@ -58,7 +58,7 @@ export default {
       intro: "Les ajouts les plus demandés, qui s'intègrent à n'importe quelle offre.",
       items: [
         { title: "Pages supplémentaires", text: "Une page par service, une page par commune desservie, une page équipe ou tarifs. Chaque page supplémentaire est une porte d'entrée de plus depuis Google." },
-        { title: "Rédaction des textes", text: "À partir d'un échange sur votre activité, je rédige des textes clairs et pensés pour les recherches de vos clients. Vous relisez et validez." },
+        { title: "Rédaction optimisée pour Google", text: "Au-delà des textes de base, inclus dans chaque offre, je rédige des pages travaillées autour des recherches de vos clients : services, questions fréquentes, mots qu'ils tapent sur Google. Vous relisez et validez." },
         { title: "Référencement local", text: "Des pages dédiées aux villes où vous intervenez, pour apparaître sur les recherches du type « métier + ville ».", example: ex("crea-bains") },
         { title: "Fiche Google Business Profile", text: "Création ou optimisation de votre fiche : catégories, horaires, photos, lien vers le site. C'est elle qui apparaît sur Google Maps." },
         { title: "Modifications ponctuelles", text: "Nouveaux tarifs, nouvelles photos, horaires d'été : sans formule de maintenance, les modifications sont faites à la demande." },

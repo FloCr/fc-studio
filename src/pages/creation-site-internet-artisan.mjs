@@ -29,7 +29,7 @@ const pageFaq = [
 
 export default {
   path: "/creation-site-internet-artisan/",
-  title: "Création de site internet pour artisan, dès 200 € | " + site.name,
+  title: "Création de site internet pour artisan, dès 200 € | " + site.brand,
   description:
     "Site internet pour plombier, électricien, chauffagiste ou rénovation : appel en un clic, photos de chantiers, demandes de devis, pages locales. Dès 200 €.",
   crumbs: [

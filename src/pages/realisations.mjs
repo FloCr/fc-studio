@@ -3,7 +3,7 @@ import { pageHero, projectsDetailed, reasonsSection, ctaSection } from "../compo
 
 export default {
   path: "/realisations/",
-  title: "Réalisations : exemples de sites internet | " + site.name,
+  title: "Réalisations : exemples de sites internet | " + site.brand,
   description:
     "Exemples de sites vitrines réalisés pour un artisan rénovation, un plombier chauffagiste et une sage-femme libérale. Design sur mesure, mobile, référencement.",
   crumbs: [{ name: "Réalisations", path: "/realisations/" }],

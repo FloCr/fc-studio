@@ -66,7 +66,7 @@ const pageFaq = [
 
 export default {
   path: "/creation-site-internet/",
-  title: "Création de site internet pas cher, dès 200 € | " + site.name,
+  title: "Création de site internet pas cher, dès 200 € | " + site.brand,
   ogTitle: "Création de site internet à petit prix, dès 200 €",
   description:
     "Je crée des sites internet professionnels à prix accessible pour les indépendants, artisans et petites entreprises. Offres dès 200 €, tarifs détaillés, devis gratuit.",

@@ -20,7 +20,7 @@ export default {
   path: "/merci/",
   noindex: true,
   noForm: true,
-  title: "Merci pour votre demande | " + site.name,
+  title: "Merci pour votre demande | " + site.brand,
   description: "Votre demande de devis a bien été envoyée.",
   body: `<section class="page-hero is-centered thanks">
   <div class="container narrow">

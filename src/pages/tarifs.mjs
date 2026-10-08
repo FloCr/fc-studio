@@ -9,7 +9,7 @@ const pricingFaq = faq.filter((f) =>
 
 export default {
   path: "/tarifs/",
-  title: "Tarifs création de site internet, dès 200 € | " + site.name,
+  title: "Tarifs création de site internet, dès 200 € | " + site.brand,
   description:
     "Site Essentiel à partir de 200 €, Site Pro à partir de 499 €, Site + Acquisition à partir de 900 €. Ce qui est inclus, le cadre de chaque offre et l'hébergement.",
   crumbs: [{ name: "Tarifs", path: "/tarifs/" }],

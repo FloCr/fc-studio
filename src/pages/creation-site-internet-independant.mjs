@@ -29,7 +29,7 @@ const pageFaq = [
 
 export default {
   path: "/creation-site-internet-independant/",
-  title: "Création de site internet pour indépendant | " + site.name,
+  title: "Création de site internet pour indépendant | " + site.brand,
   description:
     "Site internet pour thérapeute, coach, consultant ou profession de santé : présentation claire, prise de rendez-vous en ligne, référencement local. À partir de 200 €.",
   crumbs: [

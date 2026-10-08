@@ -38,7 +38,7 @@ ${page.noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name=
 ${site.googleSiteVerification ? `<meta name="google-site-verification" content="${esc(site.googleSiteVerification)}">` : ""}
 <meta property="og:type" content="website">
 <meta property="og:locale" content="${site.locale}">
-<meta property="og:site_name" content="${esc(site.name)}">
+<meta property="og:site_name" content="${esc(site.brand)}">
 <meta property="og:title" content="${esc(page.ogTitle || page.title)}">
 <meta property="og:description" content="${esc(page.description)}">
 <meta property="og:url" content="${canonical}">
@@ -96,7 +96,7 @@ const footer = () => `<footer class="site-footer">
         ${logo()}
         <span class="brand-text"><strong>${esc(site.name)}</strong><span>${esc(site.tagline)}</span></span>
       </a>
-      <p>${esc(site.brand)} : sites internet professionnels pour indépendants, artisans et petites entreprises, à partir de 200 €.</p>
+      <p>${esc(site.brand)} : sites internet professionnels pour indépendants, artisans et petites entreprises, à partir de 200 €. Basé à Bordeaux.</p>
       ${join([
         site.email && `<p><a href="mailto:${esc(site.email)}">${icon("mail")}${esc(site.email)}</a></p>`,
         site.phone && `<p><a href="tel:${site.phone.replace(/\s/g, "")}">${icon("phone")}${esc(site.phone)}</a></p>`,
@@ -119,6 +119,7 @@ const footer = () => `<footer class="site-footer">
         <li><a href="${u("/creation-site-internet/")}">Création de site internet</a></li>
         <li><a href="${u("/creation-site-internet-artisan/")}">Site internet pour artisan</a></li>
         <li><a href="${u("/creation-site-internet-independant/")}">Site pour indépendant</a></li>
+        <li><a href="${u("/creation-site-internet-bordeaux/")}">Site internet à Bordeaux</a></li>
         <li><a href="${u("/fonctionnalites/")}">Options et fonctionnalités</a></li>
       </ul>
     </nav>

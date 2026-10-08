@@ -6,7 +6,7 @@ export default {
   output: "404.html",
   noindex: true,
   noForm: true,
-  title: "Page introuvable | " + site.name,
+  title: "Page introuvable | " + site.brand,
   description: "Cette page n'existe pas ou a été déplacée.",
   body: `<section class="page-hero is-centered">
   <div class="container narrow">

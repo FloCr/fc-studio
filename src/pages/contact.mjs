@@ -3,7 +3,7 @@ import { ctaSection } from "../components.mjs";
 
 export default {
   path: "/contact/",
-  title: "Demander un devis gratuit pour votre site internet | " + site.name,
+  title: "Demander un devis gratuit pour votre site internet | " + site.brand,
   description:
     "Expliquez-moi votre projet en quelques lignes : je vous réponds avec une proposition adaptée, un tarif et un délai. Gratuit et sans engagement.",
   crumbs: [{ name: "Contact", path: "/contact/" }],

@@ -127,7 +127,7 @@ const projectCard = (p, featured, attrs = "data-reveal") => `
 const showcase = () => `
 <div class="showcase" data-showcase data-reveal>
   <div class="showcase-nav">
-    <div class="showcase-tabs" aria-label="Choisir une réalisation">
+    <div class="showcase-tabs" role="group" aria-label="Choisir une réalisation">
       ${projects
         .map(
           (p, i) => `
@@ -235,11 +235,12 @@ const offerCard = (o, tag) => `
   </div>
 </article>`;
 
-export const maintenanceBlock = () => `
+// Même niveau de titre que les cartes d'offres.
+export const maintenanceBlock = (tag = "h3") => `
 <div class="maintenance" data-reveal>
   <div>
     <p class="eyebrow">Après la mise en ligne</p>
-    <h3>${maintenance.name}</h3>
+    <${tag} class="maintenance-title">${maintenance.name}</${tag}>
     <p class="maintenance-price"><strong>${maintenance.priceFrom} à ${maintenance.priceTo} €</strong> / mois selon la formule</p>
     <p class="maintenance-note">${maintenance.note}</p>
   </div>
@@ -253,7 +254,9 @@ export const extrasBlock = () => `
   <p class="section-more"><a class="link-arrow" href="${u("/fonctionnalites/")}">Voir les options et des exemples concrets${icon("arrow")}</a></p>
 </div>`;
 
-export const offersSection = ({ tag = "h2", title, intro, withExtras = true } = {}) => `
+export const offersSection = ({ tag = "h2", title, intro, withExtras = true } = {}) => {
+  const cardTag = tag === "h1" ? "h2" : "h3";
+  return `
 <section class="section" id="offres" aria-labelledby="offres-title">
   <div class="container">
     ${sectionHead({
@@ -263,12 +266,13 @@ export const offersSection = ({ tag = "h2", title, intro, withExtras = true } = 
       intro: intro || "Trois formules pour démarrer. Vous savez ce qui est inclus, et ce qui ne l'est pas.",
     })}
     <div class="offers">
-      ${offers.map((o) => offerCard(o, tag === "h1" ? "h2" : "h3")).join("")}
+      ${offers.map((o) => offerCard(o, cardTag)).join("")}
     </div>
     <p class="offers-note">${icon("info")}Chaque projet étant différent, un devis précis est établi avant le début du projet.</p>
-    ${withExtras ? maintenanceBlock() + extrasBlock() : ""}
+    ${withExtras ? maintenanceBlock(cardTag) + extrasBlock() : ""}
   </div>
 </section>`;
+};
 
 // ---------------------------------------------------------------------------
 // Processus
@@ -327,7 +331,7 @@ export const developerSection = () => `
       <p class="eyebrow">Qui suis-je</p>
       <h2 class="section-title" id="profil-title">Un développeur, pas une agence</h2>
       <p class="lead">Je m'appelle ${esc(site.name.split(" ")[0])}. Je crée votre site, je le mets en ligne et je m'occupe de toute la partie technique.</p>
-      <p>Je suis développeur web, spécialisé notamment en Ruby on Rails, HTML et CSS. Concrètement, pour vous, cela veut dire des sites rapides, personnalisés et bien construits, sans les coûts et la lourdeur d'une agence traditionnelle.</p>
+      <p>Je suis développeur web à <a href="${u("/creation-site-internet-bordeaux/")}">Bordeaux</a>, spécialisé notamment en Ruby on Rails, HTML et CSS. Concrètement, pour vous, cela veut dire des sites rapides, personnalisés et bien construits, sans les coûts et la lourdeur d'une agence traditionnelle.</p>
     </div>
     <div class="custom-card" data-reveal>
       <h3>Besoin de plus qu'un site vitrine ?</h3>
@@ -356,7 +360,7 @@ export const faqSection = (items = faqItems, { title = "Questions fréquentes" }
         .map(
           (f) => `
       <details class="faq-item">
-        <summary><h3>${f.q}</h3><span class="faq-icon" aria-hidden="true">${icon("plus")}</span></summary>
+        <summary><span class="faq-q">${f.q}</span><span class="faq-icon" aria-hidden="true">${icon("plus")}</span></summary>
         <div class="faq-answer"><p>${f.a}</p></div>
       </details>`
         )

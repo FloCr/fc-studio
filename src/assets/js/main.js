@@ -18,7 +18,11 @@
   };
   toggle?.addEventListener("click", () => setNav(!root.classList.contains("nav-open")));
   nav?.addEventListener("click", (e) => e.target.closest("a") && setNav(false));
-  document.addEventListener("keydown", (e) => e.key === "Escape" && setNav(false));
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape" || !root.classList.contains("nav-open")) return;
+    setNav(false);
+    toggle?.focus();
+  });
   matchMedia("(min-width: 900px)").addEventListener("change", () => setNav(false));
 
   // Apparition au scroll

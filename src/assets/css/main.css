@@ -1501,7 +1501,7 @@ a.audience:hover {
   border-radius: var(--radius-lg);
 }
 
-.maintenance h3 {
+.maintenance-title {
   font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
 }
 
@@ -1686,7 +1686,10 @@ a.audience:hover {
   display: none;
 }
 
-.faq-item summary h3 {
+.faq-q {
+  font-family: var(--font-display);
+  line-height: 1.12;
+  color: var(--navy);
   text-wrap: pretty;
   font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
   font-weight: 700;

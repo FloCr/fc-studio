@@ -8,7 +8,7 @@ export default {
   path: "/mentions-legales/",
   noindex: true,
   noForm: true,
-  title: "Mentions légales | " + site.name,
+  title: "Mentions légales | " + site.brand,
   description: "Mentions légales et politique de confidentialité du site.",
   body: `<section class="page-hero">
   <div class="container narrow">
@@ -35,7 +35,8 @@ export default {
 
     <h2 id="donnees">Données personnelles</h2>
     <p>Les informations envoyées via le formulaire de contact (nom, entreprise, email, téléphone, description du projet) sont utilisées uniquement pour répondre à votre demande et, le cas échéant, établir un devis. Elles ne sont ni revendues ni transmises à des tiers à des fins commerciales.</p>
-    <p>Le formulaire est acheminé par le service Web3Forms, qui transmet le message par email. Les données sont conservées le temps nécessaire au traitement de la demande et, au plus, trois ans après le dernier contact.</p>
+    <p>Le formulaire est acheminé par le service Web3Forms (Web3Creative, Inde), qui transmet le message par email. Ses serveurs sont situés aux États-Unis : vos données transitent donc hors de l'Union européenne, et Web3Forms peut en conserver une copie selon sa <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">politique de confidentialité<span class="visually-hidden"> (nouvel onglet)</span></a>. Si vous préférez éviter ce transfert, vous pouvez me contacter directement par email ou par téléphone.</p>
+    <p>De mon côté, les données sont conservées le temps nécessaire au traitement de la demande et, au plus, trois ans après le dernier contact.</p>
     <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. ${site.email ? `Pour l'exercer, écrivez à <a href="mailto:${esc(site.email)}">${esc(site.email)}</a>.` : "Pour l'exercer, utilisez le formulaire de contact."}</p>
 
     <h2>Cookies</h2>
