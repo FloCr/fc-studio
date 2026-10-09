@@ -872,9 +872,9 @@ ol {
 
 .phone {
   overflow: hidden;
-  border: 5px solid var(--navy);
-  border-radius: 24px;
-  background: var(--navy);
+  border: 3.5px solid #1e293b;
+  border-radius: 19px;
+  background: #1e293b;
   box-shadow: var(--shadow-lg);
 }
 
@@ -883,7 +883,7 @@ ol {
   aspect-ratio: 390 / 760;
   object-fit: cover;
   object-position: top;
-  border-radius: 18px;
+  border-radius: 15.5px;
 }
 
 /* ==========================================================================
